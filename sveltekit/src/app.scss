@@ -43,20 +43,19 @@ body::-webkit-scrollbar-thumb {
 
 /* variables */
 :root {
-    --font-main: 'PPMori', sans-serif;
-    //font-size: 17px;
+    --font-main: 'Titillium Web', sans-serif;
+    font-size: 12px;
 }
 
 body{
     font-family: var(--font-main);
-    color: var(--text);
 }
 /* /variables */
 
 /* utility classes */
 .max-container{
-    width: 100%;
-    max-width: 1920px;
+    width: calc(100dvw -  62px);
+    max-width: 1600px;
     box-sizing: border-box;
     margin: 0 auto;
     /* @media (max-width:991px) {

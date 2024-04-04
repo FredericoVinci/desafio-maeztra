@@ -8,6 +8,10 @@
   })
 </script>
 
+<svelte:head>
+  <title>Maeztra</title>
+</svelte:head>
+
 <Header />
 
 <slot />
