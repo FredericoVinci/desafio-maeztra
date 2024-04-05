@@ -121,6 +121,9 @@
        .main-header {
             padding: 21px 0;
             position: relative;
+            @media (max-width: 991px) {
+                padding: 27px 0;
+            }
 
 
            &__container {
@@ -265,7 +268,7 @@
                 }
                 .controls-mobile{
                     display: none;
-                    @media (max-width: 992px) {
+                    @media (max-width: 991px) {
                         display: flex;
                         align-items: center;
                         gap: 30px;

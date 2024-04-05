@@ -68,6 +68,9 @@
                 align-items: center;
                 justify-content: center;
                 margin-right: 160px;
+                @media screen and (max-width: 1366px) {
+                    margin-right: 0;
+                }
                 li{
                     
                     a{
@@ -79,6 +82,9 @@
                         padding: 0 30px;
                         box-sizing: border-box;
                         font-size: 14px;
+                        @media screen and (max-width: 1366px) {
+                           min-width: 100px;
+                        }
 
                         .navbar__link__name{
                             color: var(--color, #353535);
