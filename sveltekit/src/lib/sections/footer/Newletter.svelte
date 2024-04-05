@@ -3,7 +3,7 @@
         <div class="newsletter__container">
             <h2>Recebe Nossa Newsletter</h2>
             <form class="newsletter__form">
-                <input type="text" placeholder="Digite seu e-mail">
+                <input type="email" placeholder="Digite seu e-mail" name="email" required>
                 <button type="submit">Enviar</button>
             </form>
         </div>
