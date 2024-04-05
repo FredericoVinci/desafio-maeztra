@@ -88,6 +88,10 @@
         margin-top: 24px;
         margin-bottom: 80px;
 
+        @media (max-width: 768px) {
+            margin-bottom: 40px;
+        }
+
         &__title{
             text-align: center;
             font-size: 16px;

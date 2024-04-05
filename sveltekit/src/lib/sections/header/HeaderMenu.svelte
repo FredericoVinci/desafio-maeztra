@@ -1,5 +1,6 @@
 <script>
-    import { base } from '$app/paths';
+    export let isOpen = false;
+    export let closeMenu 
 
     const links = [
         {
@@ -32,68 +33,143 @@
         },
     ]
 </script>
-<div class="navbar">
 
-    <div class="max-container navbar__container">
-        <nav>
-            <ul>
-                {#each links as link}
-                    <li>
-                        <a href="#">
-                            {#if link.icon}
-                                 {@html link.icon}
-                            {/if}
-                            <span style="--color:{link.color}; --font-weight:{link.fontWeight};" class="navbar__link__name">{link.name}</span>
-                        </a>
-                    </li>
-                {/each}
-            </ul>   
-        </nav>
-    </div>
-</div>
+<div class="header-menu__overlay" class:open={isOpen} on:click={closeMenu}></div>
+<aside class="header-menu" class:open={isOpen}>
+    <div class="header-menu__container">
+        <div class="header-menu__close">
+            <button class="" on:click={closeMenu}>fechar</button>
+        </div>
+        <ul class="controls">
+            <li>
+                <a href="#" class="control">
+                    <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.8 9.5C8.90312 9.5 8.47188 10 7 10C5.52812 10 5.1 9.5 4.2 9.5C1.88125 9.5 0 11.3813 0 13.7V14.5C0 15.3281 0.671875 16 1.5 16H12.5C13.3281 16 14 15.3281 14 14.5V13.7C14 11.3813 12.1187 9.5 9.8 9.5ZM12.5 14.5H1.5V13.7C1.5 12.2125 2.7125 11 4.2 11C4.65625 11 5.39687 11.5 7 11.5C8.61563 11.5 9.34062 11 9.8 11C11.2875 11 12.5 12.2125 12.5 13.7V14.5ZM7 9C9.48438 9 11.5 6.98438 11.5 4.5C11.5 2.01562 9.48438 0 7 0C4.51562 0 2.5 2.01562 2.5 4.5C2.5 6.98438 4.51562 9 7 9ZM7 1.5C8.65312 1.5 10 2.84687 10 4.5C10 6.15312 8.65312 7.5 7 7.5C5.34688 7.5 4 6.15312 4 4.5C4 2.84687 5.34688 1.5 7 1.5Z" fill="#353535"/>
+                    </svg>
+                    <span>Minha Conta</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="control">
+                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.367 1.15404C14.3033 -0.581202 11.1148 -0.320559 9.14037 1.68961C7.16591 -0.320559 3.97749 -0.584772 1.91377 1.15404C-0.771215 3.41414 -0.378464 7.09885 1.5353 9.05189L7.79788 15.4323C8.15493 15.7965 8.63337 16 9.14037 16C9.65095 16 10.1258 15.8001 10.4829 15.4359L16.7454 9.05546C18.6556 7.10242 19.0555 3.41771 16.367 1.15404ZM15.5244 7.84865L9.26177 14.2291C9.17608 14.3147 9.10467 14.3147 9.01898 14.2291L2.7564 7.84865C1.45318 6.52044 1.18897 4.00683 3.01704 2.46797C4.40595 1.30043 6.54822 1.47538 7.89071 2.84287L9.14037 4.11752L10.39 2.84287C11.7397 1.46824 13.8819 1.30043 15.2637 2.4644C17.0882 4.00326 16.8169 6.53115 15.5244 7.84865Z" fill="#353535"/>
+                    </svg>
+                    <span>Minha Lista</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="links">
+            {#each links as link}
+                <li class="link">
+                    <a href="#">
+                        <span style="--color:{link.color}; --font-weight:{link.fontWeight};" class="link__name">{link.name}</span>
+                        {#if link.icon}
+                                {@html link.icon}
+                        {/if}
+                    </a>
+                </li>
+            {/each}
+        </ul>
+    </div>    
+</aside>
 
 <style lang="scss">
-
-    .navbar{
-        padding-top: 3px;
-        padding-bottom: 4px;
-        @media (max-width: 991px) {
+    .header-menu__overlay{
+        position: fixed;
+        inset: 0;
+        background-color: #000;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 80;
+        transition: 0.3s ease-out;
+        &.open{
+            opacity: 0.7;
+            pointer-events: all;
+        }
+        @media (min-width: 992px) {
             display: none;
         }
-        &__container{
-            padding: 10px 0;
-            ul{
-                display: flex;
-                gap: 15px;
-                align-items: center;
-                justify-content: center;
-                margin-right: 160px;
-                li{
-                    
-                    a{
-                        min-width: 146px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 8px;
-                        padding: 0 30px;
-                        box-sizing: border-box;
-                        font-size: 14px;
+    }
+    .header-menu{
+        z-index: 81;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 100dvh;
+        pointer-events: none;
+        @media (min-width: 992px) {
+            display: none;
+        }
 
-                        .navbar__link__name{
-                            color: var(--color, #353535);
-                            font-weight: var(--font-weight, 400);
-                            line-height: 21px;
+        &__container{
+            pointer-events: all;
+            width: 300px;
+            max-width: calc(100dvw - 10px);  
+            height: 100%;
+            background-color: #fff;
+            transform: translateX(-100%);
+            transition: 0.3s ease-out;
+            overflow-y: auto;
+            padding: 15px 30px;
+            box-sizing: border-box;
+
+            .header-menu__close{
+                button{
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+                    font-size: 14px;    
+                    font-weight: 700;
+                    font-family: "Lato", sans-serif;
+                    color: #353535;
+                    padding: 5px 15px;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                }
+            }
+            ul{
+                padding: 10px 0;
+                li{
+                    margin-bottom: 15px;
+                }
+                &.controls{
+                    font-size: 14px;
+                    a{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        svg{
+                            display: block;
                         }
-                        &:hover{
-                            .navbar__link__name{
-                                text-decoration: underline;
-                            }
-                        }
+
                     }
                 }
+                &.links{
+                    font-size: 14px;
+                    a{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        span{
+                            color: var(--color, #353535);
+                            font-weight: var(--font-weight, 400);
+                        }
+                        svg{
+                            display: block;
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        &.open{
+            .header-menu__container{
+                transform: translateX(0);
             }
         }
     }
-    
 </style>

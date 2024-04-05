@@ -24,21 +24,25 @@
     onMount(()=>{
         new Swiper(swiperElement, {
             loop: true,
-            slidesPerView: 1,
+            slidesPerView: 1.1,
             spaceBetween: 15,
             speed: 500,
             breakpoints: {
                 576 : {
                     slidesPerView: 2,
+                    spaceBetween: 15,
                 },
                 768 : {
                     slidesPerView: 3,
+                    spaceBetween: 15,
                 },
                 992 : {
                     slidesPerView: 4,
+                    spaceBetween: 15,
                 },
                 1280: {
                     slidesPerView: 5,
+                    spaceBetween: 15,
                 }
             },
             autoplay: {
@@ -55,7 +59,7 @@
 </script>
 
 <section class="vitrine">
-    <div class="max-container">
+    <div class="max-container vitrine__container">
         <h2 class="vitrine__title">
             As Mais Pedidas
         </h2>
@@ -87,13 +91,27 @@
 <style lang="scss">
     .vitrine{
         margin-bottom: 64px;
-        
+        @media (max-width: 768px) {
+            margin-bottom: 7px;
+        }
+
+        .vitrine__container{
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+        }
+
         &__title{
             text-align: center;
             font-size: 32px;
             line-height: 49px;
             margin-bottom: 24px;
             color: #353535;
+            @media (max-width: 768px) {
+                font-size: 24px;
+                line-height: 36px;
+                margin-bottom: 16px;
+            }
         }
 
         .swiper{
@@ -115,6 +133,9 @@
                 cursor: pointer;
                 z-index: 1;
                 pointer-events: all;
+                @media (max-width: 768px) {
+                    display: none;
+                }
             }
             .swiper-prev{
                 left: 0;

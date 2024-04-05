@@ -32,7 +32,11 @@
             {#each {length: 5} as _ }
                 <div class="swiper-slide">
                     <div class="image">
-                        <img src="{base}/assets/banner-main.png" alt="">
+                        <picture>
+                            <source media="(max-width: 567px)" srcset="{base}/assets/banner-main--mobile.png" />
+                            <source media="(min-width: 568px)" srcset="{base}/assets/banner-main.png" />
+                            <img src="{base}/assets/banner-main.png" alt="">
+                        </picture>
                     </div>
                     <div class="swiper-slide__content">
                         <div class="swiper-slide__content__container max-container">
@@ -82,6 +86,11 @@
                     }
 
                     .image{
+                        min-height: 300px;
+                        @media screen and (max-width: 568px) {
+                            min-height: unset;
+                        }
+
                         img{
                             object-fit: cover;
                             width: 100%;
@@ -94,19 +103,35 @@
                         &__container{
                             height: 100%;
                             padding: 8% 162px 8%;
-
                             font-family: Montserrat, sans-serif;
                             color: #fff;
+
+                            @media screen and (max-width: 768px) {
+                                padding: 20px 36px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                            }
 
                             h2{
                                 font-size: 40px;
                                 font-weight: 700;
                                 margin-bottom: 40px;
+                                @media screen and (max-width: 768px) {
+                                    font-size: 30px;
+                                    line-height: 37px;
+                                    margin-bottom: 24px;
+                                }
                             }
                             p{
                                 font-size: 20px;
                                 margin-bottom: 32px;
                                 line-height: 1.2;
+                                @media screen and (max-width: 768px) {
+                                    font-size: 14px;
+                                    line-height: 17px;
+                                    margin-bottom: 16px;
+                                }
                             }
                             a{
                                 margin-top: 32px;
@@ -121,6 +146,14 @@
                                 justify-content: center;
                                 font-size: 16px;
                                 font-weight: 700;
+
+                                @media screen and (max-width: 768px) {
+                                    width: 76px;
+                                    height: 28px;
+                                    font-size: 14px;
+                                    margin-top: 16px;
+                                    border-radius: 4px;
+                                }
                             }
                         }   
                     }
@@ -136,6 +169,12 @@
                     box-sizing: border-box;
                     border: 2px solid #FAA500;
                     margin: 0 8px;
+
+                    @media screen and (max-width: 768px) {
+                        width: 8px;
+                        height: 8px;
+                        border-width: 1px;
+                    }
                 }
             }
 

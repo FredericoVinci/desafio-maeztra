@@ -52,6 +52,11 @@
     .marcas-parceiras{
         margin-top: 74px;
         margin-bottom: 80px;
+        @media (max-width: 768px) {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
 
         &__title{
             text-align: center;
@@ -59,6 +64,11 @@
             line-height: 49px;
             margin-bottom: 17px;
             color: #353535;
+            @media (max-width: 768px) {
+                font-size: 24px;
+                line-height: 36px;
+                margin-bottom: 24px;
+            }
         }
         .swiper{
             .swiper-slide{
