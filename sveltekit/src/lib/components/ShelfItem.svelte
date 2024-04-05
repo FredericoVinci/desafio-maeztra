@@ -37,6 +37,8 @@
         height: 100%;   
         display: grid;
         grid-template-rows: auto 1fr;
+        max-width: 500px;
+        margin: 0 auto;
         .product-image{
             width: 100%;
             img{
