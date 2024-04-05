@@ -16,7 +16,7 @@ O site gerado encontra-se na pasta `./layout/` e o source na pasta `./sveltekit/
 ## Inicio Rapido:
 
 - Desenvolvimento: `cd .\sveltekit\ && npm run dev`
-- Build: `cd .\sveltekit\ && npm run dev` *os arquivos da build sobrescreverão o conteúdo de ./layout/*
+- Build: `cd .\sveltekit\ && npm run build` *os arquivos da build sobrescreverão o conteúdo de ./layout/*
 - Preview da build: `cd .\sveltekit\ && npm run preview`
 
 ## Links  
